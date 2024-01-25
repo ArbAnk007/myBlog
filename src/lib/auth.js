@@ -14,7 +14,7 @@ export class AuthService {
 
     async login({email, password}) {
         try {
-            await this.account.createEmailSession(email, password)
+            return await this.account.createEmailSession(email, password)
         } catch (error) {
             console.log("lib :: auth :: login :: error", error);
         }
@@ -23,7 +23,7 @@ export class AuthService {
     async signUp({email, password, name}) {
         try {
             await this.account.create(ID.unique(), email, password, name);
-            await this.login({email, password});
+            return await this.login({email, password});
         } catch (error) {
             console.log("lib :: auth :: signUp :: error", error);
         }

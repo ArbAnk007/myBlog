@@ -1,0 +1,11 @@
+button.logout-btn {
+    color: #fff;
+    background-color: #ef4444;
+    border: none;
+    font-family: 'Signika', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}

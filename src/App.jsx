@@ -1,32 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { Header, Footer } from "./components"
+import { useDispatch, useSelector } from 'react-redux';
 import authService from './lib/auth';
-import { useSelector, useDispatch } from 'react-redux';
 import { updateUserStatus } from './features/authSlice';
 
 const App = () => {
 
-  const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState("")
+  const userInfo = useSelector(state => state?.user?.info)
   const dispatch = useDispatch()
-  const userData = useSelector(state => state.user)
 
   useEffect( () => {
-
     authService.getCurrentUser()
-    .then( (response) => {
-      if(response!==undefined){
-        dispatch(updateUserStatus({isLoggedIn: true, userInfo: response}))
-        setUser(response.name)
-        setLoading(false)
-      }else{
-        dispatch(updateUserStatus({isLoggedIn: false, userInfo: null}))
-      }
-    } )
-    
+    .then( (response) => {if(response!==undefined){dispatch(updateUserStatus({isLoggedIn: true, userInfo: response}))}} )
   }, [] )
 
   return (
-    !loading ? <div>Hello {user}</div> : <div>LogIn to view blogs</div>
+    <>
+      <Header />
+      <h1 style={{textAlign: "center"}}>Hello {userInfo?.name}</h1>
+      <Footer />
+    </>
   );
 };
 
