@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
-import { Header, Footer } from "./components"
-import { useDispatch, useSelector } from 'react-redux';
+import { Header, Footer, Container } from "./components"
+import { useDispatch } from 'react-redux';
 import authService from './lib/auth';
 import { updateUserStatus } from './features/authSlice';
+import "./styles/App.css"
+import { Outlet } from 'react-router-dom';
 
 const App = () => {
 
-  const userInfo = useSelector(state => state?.user?.info)
   const dispatch = useDispatch()
 
   useEffect( () => {
@@ -17,7 +18,9 @@ const App = () => {
   return (
     <>
       <Header />
-      <h1 style={{textAlign: "center"}}>Hello {userInfo?.name}</h1>
+      <Container>
+        <Outlet />
+      </Container>
       <Footer />
     </>
   );

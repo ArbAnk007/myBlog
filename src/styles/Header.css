@@ -1,6 +1,11 @@
 nav {
     display: flex;
     flex-direction: column;
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 999;
 }
 
 .header {
@@ -33,10 +38,11 @@ nav {
     font-size: 24px;
 }
 
-.header-center-section a {
+.header-center-section div {
     color: #176B87;
     font-weight: 600;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .header-right-section button.login-btn {

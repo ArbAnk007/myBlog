@@ -5,11 +5,38 @@ import './styles/index.css'
 import { Provider } from 'react-redux'
 import { store } from "./app/store.js"
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { LoginPage, SignupPage, HomePage, AllPostsPage, ContactPage } from "./pages"
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />
+    element: <App />,
+    children: [
+      {
+        path: "",
+        element: <HomePage />
+      },
+      {
+        path: "/home",
+        element: <HomePage />
+      },
+      {
+        path: "/signup",
+        element: <SignupPage />
+      },
+      {
+        path: "/login",
+        element: <LoginPage />
+      },
+      {
+        path: "/all-posts",
+        element: <AllPostsPage />
+      },
+      {
+        path: "/contact",
+        element: <ContactPage />
+      },
+    ]
   }
 ])
 

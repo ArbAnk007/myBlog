@@ -1,0 +1,19 @@
+.home-page-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 18px;
+}
+
+.home-page-welcome-container {
+  height: 200px;
+  padding: 18px;
+  background-image: linear-gradient(90deg, #fff, #EEF5FF);
+  box-sizing: border-box;
+}
+
+.home-page-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  row-gap: 12px;
+}

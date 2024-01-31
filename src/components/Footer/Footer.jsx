@@ -2,7 +2,9 @@ import "../../styles/Footer.css"
 
 function Footer() {
     return ( 
-        <div>Footer</div>
+        <footer>
+            <p>© 2023-2024, ArbAnk007 or its affiliates</p>
+        </footer>
      );
 }
 

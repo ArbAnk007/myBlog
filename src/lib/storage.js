@@ -1,7 +1,7 @@
 import {Client, Storage, ID} from "appwrite"
 import config from "../config/config"
 
-export class DatabaseService {
+export class StorageService {
     client = new Client()
     storage;
 
@@ -39,9 +39,10 @@ export class DatabaseService {
         }
     }
 
+    // *********Check********* //
     async updateFile(fileId) {
         try {
-            await this.storage.updateFile(
+            return await this.storage.updateFile(
                 config.appwriteBucketId,
                 fileId
             )
@@ -63,3 +64,7 @@ export class DatabaseService {
     }
 
 }
+
+const storageService = new StorageService()
+
+export default storageService

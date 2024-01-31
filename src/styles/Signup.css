@@ -1,0 +1,26 @@
+.signup-container {
+  width: 500px;
+  height: 500px;
+  border-radius: 32px;
+  border: 2px solid #176B87;
+  background-color: #fff;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.signup-blog-logo {
+  width: 150px;
+  cursor: pointer;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 24px;
+}

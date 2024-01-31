@@ -9,4 +9,12 @@ body {
   background-color: #EEF5FF;
   color: #176B87;
   font-family: 'Signika', sans-serif;
+  min-height: 100vh;
+  position: relative;
+  /* padding-top: 70px; */
+  padding-bottom: 40px;
+}
+
+a {
+  text-decoration: none;
 }

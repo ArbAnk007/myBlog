@@ -1,0 +1,11 @@
+.default-btn {
+    background-color: #86B6F6;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 4px 8px;
+    border: none;
+    font-family: 'Signika', sans-serif;
+    color: #000;
+    border-radius: 6px;
+    cursor: pointer;
+}

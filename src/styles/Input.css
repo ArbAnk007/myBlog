@@ -1,0 +1,22 @@
+.custom-input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 8px;
+}
+
+.custom-input {
+  height: 30px;
+  width: 270px;
+  outline: none;
+  font-size: 20px;
+  padding: 0 12px;
+  font-family: 'Signika', sans-serif;
+  border-radius: 12px;
+  border: 1px solid black;
+}
+
+.custom-input-label {
+  font-size: 18px;
+}
