@@ -1,3 +1,4 @@
+import "../styles/Select.css"
 import { useId, forwardRef } from "react";
 
 function Select({
@@ -10,11 +11,11 @@ function Select({
     const id = useId()
 
     return ( 
-        <div>
+        <div className="select-container">
             {label ? <label className={`${className}`} htmlFor={id}>{label}</label> : null}
             <select className={`${className}`} id={id} {...props} ref={ref} >
                 {options?.map( option => (
-                    <option value={option} key={option}>{option}</option>
+                    <option value={option[0]} key={option[0]}>{option[1]}</option>
                 ) )}
             </select>
         </div>

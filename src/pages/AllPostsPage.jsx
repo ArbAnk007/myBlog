@@ -1,16 +1,28 @@
 import "../styles/AllPostsPage.css"
 import { PostCard } from "../components";
+import { useEffect, useState } from "react";
+import databaseService from "../lib/database";
+import { useSelector } from "react-redux";
 
 function AllPostsPage() {
 
-  const testArr = [0,1,2,3,4,5,6,7,8,9]
+  const [allPosts, setAllPosts] = useState([])
+  const authStatus = useSelector(state => state.user.isLoggedIn)
+
+  useEffect( () => {
+    if(authStatus){
+      databaseService.getAllPost().then((response)=>{setAllPosts(response.documents)})
+    }
+  }, [] )
 
   return ( 
     <div className="all-posts-container">
-      {testArr.map( (val) => (
-        <div key={val}>
+      {allPosts.map( (post) => (
+        <div key={post.$id}>
           <PostCard 
-            title="Sample text"
+            title={post.title}
+            featuredImageId={post.featuredImageId}
+            $id={post.$id}
             className={"grid"}
           />
         </div>

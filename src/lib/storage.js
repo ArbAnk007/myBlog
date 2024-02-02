@@ -63,6 +63,17 @@ export class StorageService {
         }
     }
 
+    getFile(fileId) {
+        try {
+            return this.storage.getFileDownload(
+                config.appwriteBucketId,
+                fileId
+            )
+        } catch (error) {
+            console.log("lib :: storage :: getFile :: error", error);
+        }
+    }
+
 }
 
 const storageService = new StorageService()

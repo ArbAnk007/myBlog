@@ -15,15 +15,15 @@ function Signup() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const handleSignup = async ({name, email, password}) => {
+    const handleSignup = async (data) => {
         setError("");
         try {
-            const response = await authService.signUp({name, email, password});
+            const response = await authService.signUp({name: data.name, email: data.email, password: data.password});
             if(response) {
-                await authService.login({email, password})
-                const data = await authService.getCurrentUser();
-                if(data) {
-                    dispatch(updateUserStatus({isLoggedIn: true, userInfo: data}));
+                await authService.login({email: data.email, password: data.password})
+                const userData = await authService.getCurrentUser();
+                if(userData) {
+                    dispatch(updateUserStatus({isLoggedIn: true, userInfo: userData}));
                     navigate("/")
                 }
             }
@@ -60,7 +60,6 @@ function Signup() {
                     placeholder={"Enter your password here"}
                     {...register("password", {
                         required: true,
-                        pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm
                     })}
                 />
                 <DefaultBtn type={"submit"}>SignUp</DefaultBtn>

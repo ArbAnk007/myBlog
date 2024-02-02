@@ -4,7 +4,7 @@ import { forwardRef, useId } from "react";
 const Input = forwardRef( function Input({
     label,
     type="text",
-    classname="",
+    className="",
     ...props
 }, ref)  {
 
@@ -13,7 +13,7 @@ const Input = forwardRef( function Input({
     return (
         <div className="custom-input-container">
             {label && <label className="custom-input-label" htmlFor={id}>{label}</label>}
-            <input type={type} className={`custom-input ${classname}`} {...props} id={id} ref={ref} />
+            <input type={type} className={`custom-input ${className}`} {...props} id={id} ref={ref} />
         </div>
     )
 } )

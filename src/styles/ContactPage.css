@@ -1,0 +1,10 @@
+.contact-page-container {
+  display: flex;
+  height: calc(100vh - 40px);
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-page-container a {
+  text-decoration: underline;
+}

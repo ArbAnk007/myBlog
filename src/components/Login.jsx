@@ -15,10 +15,10 @@ function Login() {
     const [error, setError] = useState("");
     const { register, handleSubmit } = useForm();
 
-    const loginHandler = async ({email, password}) => {
+    const loginHandler = async (data) => {
         setError("");
         try {
-            const response = await authService.login({email, password})
+            const response = await authService.login({email: data.email, password: data.password})
             if(response){
                 const data = await authService.getCurrentUser()
                 if(data){
@@ -53,7 +53,6 @@ function Login() {
                     placeholder={"Enter your password here"}
                     {...register("password", {
                         required: true,
-                        pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm
                     })}
                 />
                 <DefaultBtn type={"submit"}>LogIn</DefaultBtn>

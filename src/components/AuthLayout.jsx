@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Protected({children, authentication=true}) {
 
@@ -11,17 +11,21 @@ function Protected({children, authentication=true}) {
     useEffect( () => {
 
         if(authStatus && authentication){
-            navigate("/")
+            setLoading(false)
         }else if(!authStatus && authentication){
-            navigate("/login")
+            setLoading(true)
+        }else if(!authentication){
+            setLoading(false)
         }
-        setLoading(false)
 
     }, [authStatus, navigate, authentication] )
 
     return (
-        <div>{loading ? <h1>Loading</h1> : {children}}</div>
-     );
+        <>
+            {loading ? <h1 style={{textAlign: "center", marginTop: "12px", fontSize: "56px"}}>Login to cotinue</h1> : children}
+        </>
+    )
+
 }
 
 export default Protected;

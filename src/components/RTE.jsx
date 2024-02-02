@@ -14,10 +14,11 @@ function RTE({ control, name, defaultValue="" }) {
 	return ( 
 		<div>
 			<Editor
+				apiKey="0gy4vp1swehsu0y43a0ghzqwkd4a5hzdmlncj5ovzavgk4on"
 				initialValue={defaultValue}
 				init={{
 					height: 500,
-					width: 750,
+					width: 1000,
 					menubar: true,
 					toolbar: 'undo redo | formatselect | ' +
 					'bold italic backcolor | alignleft aligncenter ' +

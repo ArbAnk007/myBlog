@@ -1,0 +1,34 @@
+.post-form-container {
+  background-color: #fff;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.post-form-container form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+}
+
+.post-form-top-section {
+  display: flex;
+  justify-content: space-around;
+}
+
+.post-form-mid-section {
+  display: flex;
+  justify-content: center;
+}
+
+.post-form-bottom-section {
+  display: flex;
+  justify-content: end;
+  column-gap: 32px;
+}
+
+.prev-img-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

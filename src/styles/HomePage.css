@@ -17,3 +17,19 @@
   align-items: start;
   row-gap: 12px;
 }
+
+.add-btn {
+  position: fixed;
+  right: 50px;
+  background-color: #000;
+  bottom: 50px;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.add-btn img {
+  height: 100px;
+  width: 100px;
+}

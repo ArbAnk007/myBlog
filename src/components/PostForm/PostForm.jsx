@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import "../../styles/PostForm.css"
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 import storageService from "../../lib/storage";
@@ -20,6 +20,7 @@ function PostForm({post}) {
   const userData = useSelector(state => state.user.info)
 
   const onSubmit = async (data) => {
+    console.log(data.content);
     if(post){
       const file = await storageService.uploadFile(data.image[0])
 
@@ -27,7 +28,7 @@ function PostForm({post}) {
         await storageService.deleteFile(post.featuredImageId)
       }
 
-      const dbPost = await databaseService.updatePost(post.$id, {...data, featuredImage: file ? file.$id : undefined})
+      const dbPost = await databaseService.updatePost(post.$id, {...data, featuredImageId: file ? file.$id : undefined})
 
       if(dbPost){
         navigate(`/post/${dbPost.$id}`)
@@ -45,9 +46,9 @@ function PostForm({post}) {
   }
 
   return ( 
-    <div>
+    <div className="post-form-container">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
+        <div className="post-form-top-section">
           <Input 
             label={"Title"}
             type={"text"}
@@ -57,16 +58,17 @@ function PostForm({post}) {
           <Input 
             label={"Image"}
             type={"file"}
-            {...register("image", {required: true})}
+            {...register("image", {required: post ? false : true})}
           />
         </div>
         {
           post && 
-          <div>
+          <div className="prev-img-container">
+            <h3>Previous Image</h3>
             <img src={storageService.getFilePreview(post.featuredImageId)} alt="" />
           </div>
         }
-        <div>
+        <div className="post-form-mid-section">
           <RTE 
             control={control}
             name={"content"}
@@ -74,10 +76,10 @@ function PostForm({post}) {
             label={"Content"}
           />
         </div>
-        <div>
+        <div className="post-form-bottom-section">
           <Select
-            options={["active", "inactive"]}
-            label={"status"}
+            options={[["active", "Public"], ["inactive", "Private"]]}
+            label={"Status"}
             {...register("status", {required: true})}
           />
           <DefaultBtn type={"submit"}>{post ? "Update" : "Submit"}</DefaultBtn>

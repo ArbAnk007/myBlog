@@ -24,6 +24,7 @@
   height: 180px;
   width: 280px;
   box-sizing: border-box;
+  object-fit: cover;
 }
 
 .postcard-container.tile .postcard-content {
@@ -72,6 +73,7 @@
   height: 180px;
   width: 280px;
   box-sizing: border-box;
+  object-fit: cover;
 }
 
 .postcard-container.grid .postcard-content {

@@ -1,0 +1,18 @@
+.select-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 12px;
+}
+
+.select-container label {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.select-container select {
+  height: 30px;
+  min-width: 120px;
+  font-size: 18px;
+  font-weight: bold;
+}

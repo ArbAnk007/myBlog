@@ -73,6 +73,7 @@ export class DatabaseService {
             )
         } catch (error) {
             console.log("lib :: databases :: getPost :: error", error);
+            return false
         }
     }
         

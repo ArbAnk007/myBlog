@@ -10,5 +10,7 @@ import RTE from "./RTE"
 import PostForm from "./PostForm/PostForm"
 import Signup from "./Signup"
 import Container from "./Container/Container"
+import Post from "./Post"
+import Protected from "./AuthLayout"
 
-export { Footer, Header, LogoutBtn, DefaultBtn, Input, Select, PostCard, Login, RTE, PostForm, Signup, Container }
+export { Footer, Header, LogoutBtn, DefaultBtn, Input, Select, PostCard, Login, RTE, PostForm, Signup, Container, Post, Protected }
