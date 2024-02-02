@@ -21,7 +21,6 @@ export class StorageService {
                 file
             )
         } catch (error) {
-            console.log("lib :: storage :: uploadFile :: error", error);
             return false
         }
     }
@@ -34,20 +33,6 @@ export class StorageService {
             )
             return true
         } catch (error) {
-            console.log("lib :: storage :: deleteFile :: error", error);
-            return false
-        }
-    }
-
-    // *********Check********* //
-    async updateFile(fileId) {
-        try {
-            return await this.storage.updateFile(
-                config.appwriteBucketId,
-                fileId
-            )
-        } catch (error) {
-            console.log("lib :: storage :: updateFile :: error", error);
             return false
         }
     }
@@ -59,7 +44,7 @@ export class StorageService {
                 fileId
             )
         } catch (error) {
-            console.log("lib :: storage :: getFilePreview :: error", error);
+            return false
         }
     }
 
@@ -70,7 +55,7 @@ export class StorageService {
                 fileId
             )
         } catch (error) {
-            console.log("lib :: storage :: getFile :: error", error);
+            return false
         }
     }
 

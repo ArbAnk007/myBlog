@@ -28,7 +28,7 @@ export class DatabaseService {
                 }
             );
         } catch (error) {
-            console.log("lib :: databases :: createPost :: error", error);
+            return false
         }
     }
 
@@ -46,7 +46,7 @@ export class DatabaseService {
                 }
             )
         } catch (error) {
-            console.log("lib :: databases :: updatePost :: error", error);
+            return false
         }
     }
 
@@ -59,7 +59,6 @@ export class DatabaseService {
             );
             return true
         } catch (error) {
-            console.log("lib :: databases :: deletePost :: error", error);
             return false
         }
     }
@@ -72,7 +71,6 @@ export class DatabaseService {
                 documentId
             )
         } catch (error) {
-            console.log("lib :: databases :: getPost :: error", error);
             return false
         }
     }
@@ -85,7 +83,7 @@ export class DatabaseService {
                 queries
             )
         } catch (error) {
-            console.log("lib :: databases :: getAllPost :: error", error);
+            return false
         }
     }
 }
