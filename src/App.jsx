@@ -14,7 +14,7 @@ const App = () => {
 
   useEffect( () => {
     authService.getCurrentUser()
-    .then( (response) => {if(response!==undefined){dispatch(updateUserStatus({isLoggedIn: true, userInfo: response}))}} )
+    .then( (response) => {if(response!==undefined && response!=false){dispatch(updateUserStatus({isLoggedIn: true, userInfo: response}))}} )
   }, [] )
 
   return (
