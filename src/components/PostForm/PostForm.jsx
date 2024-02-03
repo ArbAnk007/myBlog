@@ -20,7 +20,6 @@ function PostForm({post}) {
   const userData = useSelector(state => state.user.info)
 
   const onSubmit = async (data) => {
-    console.log(data.content);
     if(post){
       const file = await storageService.uploadFile(data.image[0])
 
