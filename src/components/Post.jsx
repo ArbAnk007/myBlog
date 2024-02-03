@@ -34,7 +34,7 @@ function Post({
       </div>
       <div className="post-content-container">
         <h1 className="post-title">{title}</h1>
-        <div className="post-content">{parse(content)}</div>
+        <div className="post-content">{content ? parse(content) : null}</div>
       { userData.$id===userId ? <button className="edit-post-btn" onClick={() => {navigate(`/edit-post/${documentId}`)}}>Edit</button> : null }
       { userData.$id===userId ? <button className="delete-post-btn" onClick={deletePost}>Delete</button> : null }
       </div>
