@@ -26,9 +26,9 @@ function HomePage() {
       <div className="home-page-welcome-container">
         <h1>
           Good {
-          currentHour>0 && currentHour<12 ? "Morning "
-          : currentHour>12 && currentHour<18 ? "Afternoon "
-          : currentHour>18 && currentHour<21 ? "Evening "
+          currentHour>=0 && currentHour<12 ? "Morning "
+          : currentHour>=12 && currentHour<18 ? "Afternoon "
+          : currentHour>=18 && currentHour<21 ? "Evening "
           : "Night "
           }
           {userInfo?.name}
