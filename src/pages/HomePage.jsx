@@ -16,8 +16,8 @@ function HomePage() {
 
   useEffect( () => {
     if(userInfo){
-      databaseService.getAllPost()
-      .then( (response) => {setPosts(response.documents)} )
+      databaseService.getAllPost(userInfo.$id)
+      .then( (response) => {setPosts(response); return response} )
     }
   }, [] )
 

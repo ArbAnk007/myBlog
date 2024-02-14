@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 function EditPostPage() {
   const { slug } = useParams();
-  const userData = useSelector(state => state?.user?.info);
+  const userInfo = useSelector(state => state?.user?.info);
   const [postInfo, setPostInfo] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -23,7 +23,7 @@ function EditPostPage() {
   }, []);
 
   if (!loading) {
-    if (postInfo && postInfo.userId === userData.$id) {
+    if (postInfo && postInfo.userId === userInfo.$id) {
       return <PostForm post={postInfo} />;
     } else {
       return <PageNotFound />;

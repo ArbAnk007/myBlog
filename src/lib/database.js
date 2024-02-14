@@ -75,13 +75,26 @@ export class DatabaseService {
         }
     }
         
-    async getAllPost(queries=[Query.equal("status",["active"])]) {
+    async getAllPost(userId) {
         try {
-            return await this.databases.listDocuments(
+            let postArray = []
+            const response = await this.databases.listDocuments(
                 config.appwriteDatabaseId,
                 config.appwriteCollectionId,
-                queries
+                [
+                    Query.equal("status", ["active"]),
+                    Query.notEqual("userId", [userId])
+                ]
             )
+            const anotherResponse = await this.databases.listDocuments(
+                config.appwriteDatabaseId,
+                config.appwriteCollectionId,
+                [
+                    Query.equal("userId", [userId])
+                ]
+            )
+            postArray = [...anotherResponse.documents,...response.documents]
+            return postArray
         } catch (error) {
             return false
         }
