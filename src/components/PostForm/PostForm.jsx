@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 function PostForm({post}) {
 
-  const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
+  const { register, handleSubmit, control, getValues } = useForm({
     defaultValues: {
       title: post?.title || "",
       content: post?.content || "",
@@ -64,7 +64,7 @@ function PostForm({post}) {
           post && 
           <div className="prev-img-container">
             <h3>Previous Image</h3>
-            <img src={storageService.getFilePreview(post.featuredImageId)} alt="" />
+            <img src={storageService.getFilePreview(post.featuredImageId)} alt="prev image" id="prev-img" />
           </div>
         }
         <div className="post-form-mid-section">

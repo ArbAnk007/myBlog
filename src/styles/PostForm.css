@@ -32,3 +32,7 @@
   justify-content: center;
   align-items: center;
 }
+
+#prev-img {
+  max-width: 80%;
+}
